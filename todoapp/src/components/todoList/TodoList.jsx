@@ -4,6 +4,8 @@ import Todo from '../todo/Todo';
 
 class TodoList extends Component {
     render() {
+        console.log("aada",this.props.items)
+        
         return (
             <div id="todo-list-container">
                 <table className="table table-striped table-bordered">
@@ -18,7 +20,7 @@ class TodoList extends Component {
                     </thead>
                     <tbody>
                         {
-                            !console.log("aada",this.props.items) &&
+                            
                             this.props.items.map((element, index) => {
                                 return <Todo key={index} index={index} task={element} />;
                             })

@@ -21,7 +21,7 @@ const todoListReducer = (state = intialState, action)=>{
         default:
             return state;
     }
-    //console.log(newState);
+    console.log(newState);
     return newState;
 };
 
