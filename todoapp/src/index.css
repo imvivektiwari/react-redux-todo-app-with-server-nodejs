@@ -1,0 +1,15 @@
+.navbar-brand{
+  color:#ffffff !important;
+}
+
+
+#todo-creator-container{
+  padding: 35px 15px 35px 15px;
+  margin: 0;
+  border: 1px solid #000;
+}
+
+
+#todo-list-container{
+  margin-top: 10px;
+}
