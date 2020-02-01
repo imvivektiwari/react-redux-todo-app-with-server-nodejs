@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { bindActionCreators } from 'redux';
 import { addTodoAction } from '../../store/actions/addTodoAction';
 
 class AddTodo extends Component {
@@ -26,18 +25,24 @@ class AddTodo extends Component {
                 <div className="col">
                     <button className="btn btn-primary" onClick={event => this.addTodo()}>Create</button>
                 </div>
+                <div className="col">
+                    { this.props.loading && <span>Loading . . .</span>}
+                </div>
             </div>
         );
     }
 }
 
-const mapDistachToProps = () => dispatch => {
-    //return bindActionCreators({ addTodo: addTodoAction }, dispatch);
-
+const mapDistachToProps = (dispatch)=>{
     return {
         addTodo: (a)=>dispatch(addTodoAction(a))
     };
-
 };
 
-export default connect(null, mapDistachToProps)(AddTodo);
+const mapStoreToProps = (state)=>{
+    return {
+        loading:state.todoListReducer.loading
+    };
+};
+
+export default connect(mapStoreToProps, mapDistachToProps)(AddTodo);

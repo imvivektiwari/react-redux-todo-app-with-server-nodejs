@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteTodoAction } from '../../store/actions/deleteTodoAction';
-//import { bindActionCreators } from 'redux';
 
 class Todo extends Component {
     render() {
@@ -19,8 +18,7 @@ class Todo extends Component {
     }
 }
 
-const mapDistachToProps = () => dispatch => {
-    //return bindActionCreators({ deleteTodoById: deleteTodoAction }, dispatch);
+const mapDistachToProps = (dispatch)  => {
     return {
         deleteTodoById: (a)=> dispatch(deleteTodoAction(a))
     }

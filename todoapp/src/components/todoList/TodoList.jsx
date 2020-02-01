@@ -18,6 +18,7 @@ class TodoList extends Component {
                     </thead>
                     <tbody>
                         {
+                            !console.log("aada",this.props.items) &&
                             this.props.items.map((element, index) => {
                                 return <Todo key={index} index={index} task={element} />;
                             })
@@ -29,10 +30,11 @@ class TodoList extends Component {
     }
 }
 
-const mapStateToProps = () => state => {
+const mapStoreToProps = (state) =>{
+    
     return {
-        items: state.todoList
+        items: state.todoListReducer.todoArray
     };
 };
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStoreToProps)(TodoList);

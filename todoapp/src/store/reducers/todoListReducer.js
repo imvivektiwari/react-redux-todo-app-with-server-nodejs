@@ -1,20 +1,28 @@
-const intialState = [
-   
-];
+const intialState = {
+    todoArray: [],
+    loading:false
+}
 
 
 const todoListReducer = (state = intialState, action)=>{
+
+    let newState = {...state};
+
     switch (action.type) {
         case 'ADD_TODO':
-            return [action.payload, ...state];
+            newState.todoArray = [action.payload, ...newState.todoArray]
+            break;
         case 'DELETE_TODO':
-            let copy = Object.assign(state);
-            console.log(action);
-            copy.splice(action.payload, 1);
-            return [...copy];
+            newState.todoArray.splice(action.payload, 1);
+            break;
+        case 'LOADING':
+             newState.loading = action.payload
+             break;
         default:
             return state;
     }
+    //console.log(newState);
+    return newState;
 };
 
 export default  todoListReducer;
