@@ -3,10 +3,7 @@ const intialState = [
 ];
 
 
-export default function (state = intialState, action) {
-
-    
-
+const todoListReducer = (state = intialState, action)=>{
     switch (action.type) {
         case 'ADD_TODO':
             return [action.payload, ...state];
@@ -18,4 +15,6 @@ export default function (state = intialState, action) {
         default:
             return state;
     }
-}
+};
+
+export default  todoListReducer;

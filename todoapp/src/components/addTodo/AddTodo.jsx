@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+//import { bindActionCreators } from 'redux';
 import { addTodoAction } from '../../store/actions/addTodoAction';
 
 class AddTodo extends Component {
@@ -32,7 +32,12 @@ class AddTodo extends Component {
 }
 
 const mapDistachToProps = () => dispatch => {
-    return bindActionCreators({ addTodo: addTodoAction }, dispatch);
+    //return bindActionCreators({ addTodo: addTodoAction }, dispatch);
+
+    return {
+        addTodo: (a)=>dispatch(addTodoAction(a))
+    };
+
 };
 
 export default connect(null, mapDistachToProps)(AddTodo);
