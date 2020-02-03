@@ -1,5 +1,15 @@
 const intialState = {
-    todoArray:[],
+    todoArray:[
+        {
+            "id":"d9c50bbb-e71b-4b19-8b15-a658ea13dde0",
+            "item":"clean room",
+            "priority":"Low",
+            "isCompleted":false,
+            "status":"Active",
+            "datetime":"6:50:12 PM 2/3/2020"
+        }
+    ]
+    ,
     loading:false
 };
 
