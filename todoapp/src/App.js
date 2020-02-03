@@ -8,7 +8,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container" style={{"backgroundColor":"#F8F9FA",height:"100vh", padding:0}}>
+      <div className="container-fluid" style={{"backgroundColor":"#F8F9FA",height:"100vh", padding:0}}>
          <Header />
          <AddTodo />
          <TodoList />

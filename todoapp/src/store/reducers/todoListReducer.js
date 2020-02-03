@@ -13,8 +13,10 @@ const todoListReducer = (state = intialState, action)=>{
             newState.todoArray = [action.payload, ...newState.todoArray]
             break;
         case 'DELETE_TODO':
-            newState.todoArray.splice(action.payload, 1);
-            newState.todoArray = [...newState.todoArray];
+            newState.todoArray = deleteTaskById(newState.todoArray, action.payload);
+            break;
+        case 'MARK_COMPLETE_TODO':
+            newState.todoArray = changeTaskStatusById(newState.todoArray, action.payload, "Completed");
             break;
         case 'LOADING': 
             newState.loading=action.payload;
@@ -24,5 +26,26 @@ const todoListReducer = (state = intialState, action)=>{
     }
     return newState;
 };
-
 export default  todoListReducer;
+
+
+const deleteTaskById = (array, id)=>{
+    return array.filter((ele)=>{
+        return ele.id!=id
+    });
+}
+
+const changeTaskStatusById = (array, id, status)=>{
+
+    array = Object.assign([], array);
+    array.forEach((element,index) => {
+        if(element.id==id){
+            let obj = {...array[index]};
+            obj.status=status;
+            obj.isCompleted=true;
+            array[index]=obj;
+            return false;
+        }
+    });
+    return array;
+}

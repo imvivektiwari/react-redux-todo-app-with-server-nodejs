@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodoAction } from '../../store/actions/addTodoAction';
-
+import uuid from 'uuid';
 class AddTodo extends Component {
     
     addTodo() {
-        this.props.addTodo({ item: this.refs.task.value, priority:this.refs.priority.value ,status:'Active' });
+        let datetime = new Date();
+        this.props.addTodo(
+            { 
+                id:uuid.v4(),
+                item: this.refs.task.value, 
+                priority:this.refs.priority.value,
+                isCompleted:false,
+                status:'Active',
+                datetime:datetime.toLocaleTimeString()+" "+datetime.toLocaleDateString()
+            }
+        );
         this.refs.task.value="";
     }
 

@@ -15,12 +15,13 @@ class TodoList extends Component {
                             <td>Task</td>
                             <td>Priority</td>
                             <td>Status</td>
+                            <td>Created Time</td>
+                            <td>Mark Complete</td>
                             <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            
+                        {                           
                             this.props.items.map((element, index) => {
                                 return <Todo key={index} index={index} task={element} />;
                             })
