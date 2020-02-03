@@ -18,10 +18,10 @@ class Todo extends Component {
     }
 }
 
-const mapDistachToProps = (dispatch)  => {
+const mapDispachToProps = (dispatch)  => {
     return {
         deleteTodoById: (a)=> dispatch(deleteTodoAction(a))
     }
 };
 
-export default connect(null, mapDistachToProps)(Todo);
+export default connect(null, mapDispachToProps)(Todo);
