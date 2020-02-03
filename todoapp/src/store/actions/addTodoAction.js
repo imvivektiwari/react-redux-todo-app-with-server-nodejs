@@ -1,3 +1,5 @@
+import {loading} from "./loadingAction"
+
 export function addTodoActionAsync(todo) {
     return {
         type: 'ADD_TODO',
@@ -7,8 +9,10 @@ export function addTodoActionAsync(todo) {
 
 export function addTodoAction(todo) {
     return (dispach)=> {
+        dispach(loading(true));
         setTimeout(()=>{
             dispach(addTodoActionAsync(todo));
+            dispach(loading(false));
         }, 2000);
     }
 }

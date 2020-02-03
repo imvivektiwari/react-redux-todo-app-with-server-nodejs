@@ -32,10 +32,9 @@ class TodoList extends Component {
     }
 }
 
-const mapStoreToProps = (state) =>{
-    
+const mapStoreToProps = (state) =>{  
     return {
-        items: state.todoListReducer
+        items: state.todoListReducer.todoArray
     };
 };
 
