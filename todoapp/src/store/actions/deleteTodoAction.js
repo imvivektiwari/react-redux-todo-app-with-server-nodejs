@@ -1,5 +1,5 @@
 import {loading} from "./loadingAction"
-
+import {actionNotify} from './../notify';
 export function deleteTodoActionAsync(todo) {
     return {
         type: 'DELETE_TODO',
@@ -13,6 +13,7 @@ export function deleteTodoAction(todo) {
         setTimeout(()=>{
             dispach(deleteTodoActionAsync(todo));
             dispach(loading(false));
+            actionNotify('Task Deleted');
         }, 2000);
     }
 }

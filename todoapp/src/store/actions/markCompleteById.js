@@ -1,4 +1,5 @@
 import {loading} from "./loadingAction"
+import {actionNotify} from './../notify';
 
 export function markCompleteByIdAsync(todo) {
     return {
@@ -14,6 +15,7 @@ export function markCompleteById(todo) {
         setTimeout(()=>{
             dispach(markCompleteByIdAsync(todo));
             dispach(loading(false));
+            actionNotify('Task Completed');
         }, 2000);
     }
 }

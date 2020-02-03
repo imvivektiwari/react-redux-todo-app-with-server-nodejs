@@ -1,5 +1,5 @@
 import {loading} from "./loadingAction"
-
+import {actionNotify} from './../notify';
 export function addTodoActionAsync(todo) {
     return {
         type: 'ADD_TODO',
@@ -13,6 +13,7 @@ export function addTodoAction(todo) {
         setTimeout(()=>{
             dispach(addTodoActionAsync(todo));
             dispach(loading(false));
+            actionNotify('Task Created');
         }, 2000);
     }
 }
